@@ -68,7 +68,6 @@ if (index === -1) {
     console.log('found')
 }
 
-
 // concat
 let myConcat = arr.concat(arr3)
 
@@ -81,10 +80,14 @@ let minIndex = arr.indexOf(minVal)
 
 // max value
 let maxVal = Math.max(...arr)
-let maxxIndex = arr.indexOf(maxVal)
+let maxIndex = arr.indexOf(maxVal)
 
 
+// Destructuring
 
+let grid = [1, 2]
+let [x, y] = grid           // x -> 1, y -> 2
 
+let [first, second, ...rest] = arr;     // rest operator
 
 
