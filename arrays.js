@@ -90,4 +90,12 @@ let [x, y] = grid           // x -> 1, y -> 2
 
 let [first, second, ...rest] = arr;     // rest operator
 
+function min(...arr) {          // rest operator
+    return Math.min(...arr)     // spread operator
+}
+
+let minEl = min(1, 2, 3, 4, 5, 6, 7, 9)
+
+// Arrays as Collections
+
 
