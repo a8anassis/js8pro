@@ -1,5 +1,6 @@
 class ProductError extends Error {
-
+    #count = 0;
+    
     constructor(message) {
         super(message)
         this.code = 'ProductError'
