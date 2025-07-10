@@ -6,3 +6,6 @@ console.log(checkTruthy([]))
 console.log(checkTruthy(0))
 console.log('false')
 
+
+
+
