@@ -22,6 +22,12 @@ function listProperties(obj) {
   }
 }
 
+function listProperties2(obj) {
+  for (const [key, value] of Object.entries(obj)) {
+    console.log(`${key}: ${value}`);
+  }
+}
+
 listProperties(person);
 // Output:
 // name: John
@@ -110,8 +116,8 @@ Age: Not provided
 
 
 // React props
-const Button = ({ text, onClick, variant = 'primary' }) => (
-  <button className={`btn-${variant}`} onClick={onClick}>
+const Button = ({ text, onClick, color = 'primary' }) => (
+  <button className={`btn-${color}`} onClick={onClick}>
     {text}
   </button>
 );
@@ -119,5 +125,5 @@ const Button = ({ text, onClick, variant = 'primary' }) => (
 <Button 
   text="Click Me" 
   onClick={() => console.log('Clicked!')} 
-  variant="secondary"
+  color="secondary"
 />
