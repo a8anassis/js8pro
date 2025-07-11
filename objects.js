@@ -25,3 +25,18 @@ for (let key in point3D) {
 for (const [key, value] of Object.entries(point3D)) {
     console.log(`${key}: ${value}`)
 }
+
+
+const cart = {
+    items: [],
+    addItem(item, price) {
+        this.items.push({ item, price })
+    },
+    calculateTotal() {
+        return this.items.reduce((total, item) => total + item.price, 0)
+    }
+}
+
+cart.addItem('Milk', 2)
+cart.addItem('Eggs', 5)
+console.log(cart.calculateTotal())  // 7
