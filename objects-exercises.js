@@ -88,9 +88,9 @@ console.log(stock);      // 0 (default value)
 
 // Without destructuring (verbose)
 function displayUserVerbose(user) {
-  console.log(`Name: ${user.name}`);
-  console.log(`Email: ${user.email}`);
-  console.log(`Age: ${user.age || 'Not provided'}`);
+  console.log(`Name: ${user['name']}`);
+  console.log(`Email: ${user['email']}`);
+  console.log(`Age: ${user['age'] || 'Not provided'}`);
 }
 
 // With destructuring (clean)
@@ -116,14 +116,14 @@ Age: Not provided
 
 
 // React props
-const Button = ({ text, onClick, color = 'primary' }) => (
-  <button className={`btn-${color}`} onClick={onClick}>
-    {text}
-  </button>
-);
+// const Button = ({ text, onClick, color = 'primary' }) => (
+//   <button className={`btn-${color}`} onClick={onClick}>
+//     {text}
+//   </button>
+// );
 
-<Button 
-  text="Click Me" 
-  onClick={() => console.log('Clicked!')} 
-  color="secondary"
-/>
+// <Button 
+//   text="Click Me" 
+//   onClick={() => console.log('Clicked!')} 
+//   color="secondary"
+// />
