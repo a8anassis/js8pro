@@ -25,10 +25,10 @@ createDate(6, 12)           // 6/12/2025
 
 // Rest
 
-function max(...rest) {
+function max(...arr) {
     let maxVal = -Infinity
 
-    for (let n of rest) {
+    for (let n of arr) {
         if (n > maxVal) maxVal = n
     }
     return maxVal
