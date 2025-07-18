@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="outer">
+
+    </div>
+
+    <script>
+
+        // Ref to outer
+        const outerDom = document.querySelector('.outer')
+
+        // Create img element and set properties <-> html attributes
+        const imgElement = document.createElement('img')
+        imgElement.src = '../img/logo.png'
+        imgElement.alt = 'Coding Factory Logo'
+
+        // Append to DOM
+        outerDom.appendChild(imgElement)
+    </script>
+    
+</body>
+</html>
