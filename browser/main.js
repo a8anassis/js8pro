@@ -1,15 +1,14 @@
-// document.getElementById('helloTxt').innerHTML = "<strong>Hello Coding!</strong>"
+// const h1DOM = document.getElementById('helloTxt').innerHTML = '<strong>Hello Coding</strong>'
 
-// Get a reference to DOM
 const h1DOM = document.getElementById('helloTxt')
+h1DOM.innerHTML += '<strong>Hello Coding</strong>'
 
-// Aplly properties
-h1DOM.innerHTML = h1DOM.innerHTML +  'Hello Coding!'
-h1DOM.style.backgroundColor = "#ff0000"
+// Styling
+h1DOM.style.backgroundColor = '#ff0000'
 
-// Create a Paragraph element
 const pDOM = document.createElement('p')
 pDOM.innerHTML = "I am a paragraph"
 pDOM.classList.add('borderBlack')
 
 document.body.appendChild(pDOM)
+

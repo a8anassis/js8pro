@@ -6,24 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-
     <div class="outer">
 
     </div>
 
     <script>
+        // Reference to .outer div element
+        const outerDOM = document.querySelector('.outer')
 
-        // Ref to outer
-        const outerDom = document.querySelector('.outer')
-
-        // Create img element and set properties <-> html attributes
+        // Create img element and set τα properties του Object
         const imgElement = document.createElement('img')
         imgElement.src = '../img/logo.png'
         imgElement.alt = 'Coding Factory Logo'
 
-        // Append to DOM
-        outerDom.appendChild(imgElement)
+        // Append στο DOM
+        outerDOM.appendChild(imgElement)
+
+
     </script>
-    
 </body>
 </html>
