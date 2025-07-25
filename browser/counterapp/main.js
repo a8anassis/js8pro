@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     this.window.document.querySelector("#btnDecr").addEventListener('click', () => onDecreaseClicked())
     this.window.document.querySelector("#btnReset").addEventListener('click', () => onResetClicked())
-    this.window.document.querySelector("#btnincr").addEventListener('click', () => onIncreaseClicked())
+    this.window.document.querySelector("#btnIncr").addEventListener('click', () => onIncreaseClicked())
 })
 
 
