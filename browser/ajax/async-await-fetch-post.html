@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click me to post data</button>
+    <p id="output"></p>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', async () => {
+            try {
+                const payload = {
+                    userId: 1,
+                    title: "Coding",
+                    body: "CF JS Course"
+                }
+
+                const options = {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                }
+
+                let response = await fetch('https://jsonplaceholder.typicode.com/posts', options);
+                if (!response.ok) throw new Error('Invalid Response');
+                let data = await response.json();
+                document.getElementById('output').innerHTML = `<b>Title: </b>${data.title}
+                                                                <br>
+                                                                <b>Body: </b>${data.body}`
+            } catch (error) {
+                console.error('Fetch Error: ', error)
+                document.getElementById('output').innerHTML = 'Error Fetching Data';   
+            }
+        })
+    </script>
+</body>
+</html>
