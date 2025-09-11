@@ -20,7 +20,7 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
                     if (xhr.status >= 200 && xhr.status < 300) {
-                        handleResponse(JSON.parse(xhr.responseText))
+                        handleResponse(JSON.parse(xhr.responseText))    // JSON.Parse(): JSON String -> JS Object
                     } else {
                         showError(xhr.statusText)
                     }
