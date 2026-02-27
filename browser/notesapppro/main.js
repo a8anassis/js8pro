@@ -32,24 +32,14 @@ window.addEventListener('DOMContentLoaded', function() {
     renderNotes()
 })
 
-
 function printGrDate() {
-    const currentDate = new Date()
-    const day = currentDate.getDay()
-    const date = currentDate.getDate()
-    const month = currentDate.getMonth()
-    const year = currentDate.getFullYear()
-    const hours = currentDate.getHours()
-    const minutes = currentDate.getMinutes()
-    const seconds = currentDate.getSeconds()
+    const now = new Date()
+    const pad = n => String(n).padStart(2, '0')
 
-    const dayStr = daysGR[day]
-    const monthStr = monthsGR[month]
+    const dateStr = `${daysGR[now.getDay()]}, ${now.getDate()} ${monthsGR[now.getMonth()]} ${now.getFullYear()}`
+    const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
 
-    const dateStr = `${dayStr}, ${date} ${monthStr} ${year}`
-    const timeStr = `${(hours < 10) ? '0': ''}${hours}:${(minutes < 10) ? '0': ''}${minutes}:${(seconds < 10) ? '0': ''}${seconds}`
-
-    document.querySelector('#dateTxt').innerHTML = `${dateStr}<br>${timeStr}`
+    dateTxt.innerHTML = `${dateStr}<br>${timeStr}`
 }
 
 // Controller
