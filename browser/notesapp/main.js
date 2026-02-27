@@ -17,6 +17,8 @@ window.addEventListener('DOMContentLoaded', function() {
             onInsertHandler({ key: count + 1, note: e.target.value.trim(), softDeleted: false})    
         }
     })
+
+    renderNotes()
 })
 
 function printGrDate() {

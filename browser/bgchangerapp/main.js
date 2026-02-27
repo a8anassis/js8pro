@@ -1,4 +1,5 @@
 let color = undefined
+const colors = ['black', 'red', 'green', 'blue', 'yellow']
 
 window.addEventListener("DOMContentLoaded", function() {
 
@@ -8,26 +9,25 @@ window.addEventListener("DOMContentLoaded", function() {
 
 })
 
-
 // Controllers
 function onClickMeClicked() {
     updateBg()
+    renderBg()
 }
 
 
 // Model
 function updateBg() {
     color = getBgColor()    // color = 'green'
-    renderBg()
+    // renderBg()
 }
 
 function getBgColor() {
-    const colors = ['black', 'red', 'green', 'blue', 'yellow']
     return colors[Math.floor(Math.random() * colors.length)]
 }
 
 function renderBg() {
-    document.getElementById('color').innerHTML = color
+    document.getElementById('color').textContent = color
     document.body.style.backgroundColor = color
 }
 

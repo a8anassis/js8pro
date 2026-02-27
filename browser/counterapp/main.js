@@ -3,9 +3,9 @@ let counter = DEFAULT   // State - Data
 
 window.addEventListener('DOMContentLoaded', function() {
 
-    this.window.document.querySelector("#btnDecr").addEventListener('click', () => onDecreaseClicked())
-    this.window.document.querySelector("#btnReset").addEventListener('click', () => onResetClicked())
-    this.window.document.querySelector("#btnIncr").addEventListener('click', () => onIncreaseClicked())
+    document.querySelector("#btnDecr").addEventListener('click', () => onDecreaseClicked())
+    document.querySelector("#btnReset").addEventListener('click', () => onResetClicked())
+    document.querySelector("#btnIncr").addEventListener('click', () => onIncreaseClicked())
 })
 
 

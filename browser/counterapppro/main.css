@@ -1,0 +1,18 @@
+.root {
+    height: 80vh;
+}
+
+
+.color-green {
+    color: green;
+}
+
+.color-red {
+    color: red;
+}
+
+.color-black {
+    color: black;
+}
+
+.min-h-3 { min-height: 48px; }  /* numeric scale */
