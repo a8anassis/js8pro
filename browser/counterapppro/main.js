@@ -14,53 +14,52 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Controllers
 function onDecreaseClicked() {
-    decreaseCounter()
     if (counter === MIN) {
-        console.log('Error. Counter must be greater equal than MIN')
-        document.querySelector('#message').textContent = 'Counter has reached its minimum value'
+        render('Counter has reached its minimum value')
     }
+    render()
+    decreaseCounter()
+    
 }
 
 function onResetClicked() {
-    if (counter === DEFAULT) {
-        console.log('Counter is already reset')
-        document.querySelector('#message').textContent = 'Counter already reset'
-        return
-    }
-    resetCounter()
     
+    if (counter === DEFAULT) {
+        render('Counter already reset')
+    }
+    render()
+    resetCounter()
 }
 
 function onIncreaseClicked() {
-    increaseCounter()
+   
     if (counter === MAX) {
-        console.log('Error. Counter must be lower equal than MAX')
-        document.querySelector('#message').textContent = 'Counter has reached its maximum value'
-        // return
+        render('Counter has reached its maximum value')
     }
-    
+    render()
+     increaseCounter()
 }
 
 
 // Model
 function decreaseCounter() {
     counter--;
-    render()
+    // render()
 }
 
 function resetCounter() {
     counter = DEFAULT
-    render()
+    // render()
 }
 
 function increaseCounter() {
     counter++
-    render()
+    // render()
 }
 
 // View
-function render() {
-    document.querySelector('#message').textContent = ''
+function render(message = '') {
+    document.querySelector('#message').textContent = message
     const counterDOM = document.querySelector('#counter')
     counterDOM.textContent = counter
     document.querySelector('#btnDecr').disabled = counter === MIN
