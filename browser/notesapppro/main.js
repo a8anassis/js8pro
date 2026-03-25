@@ -1,8 +1,8 @@
 const daysGR = ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο']
-const monthsGR = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μσρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου']
+const monthsGR = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου']
 
 let notes = []
-let count = 0
+let nextId = 1
 
 window.addEventListener('DOMContentLoaded', function() {
     const inputNote = document.querySelector('#inputNote');
@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     // getNewNote works inside the listener since it has access to getNoteValue via closure
     const getNewNote = () => ({
-        key: count + 1,
+        key: nextId,
         note: getNoteValue(),
         softDeleted: false,
     });
@@ -39,7 +39,7 @@ function printGrDate() {
     const dateStr = `${daysGR[now.getDay()]}, ${now.getDate()} ${monthsGR[now.getMonth()]} ${now.getFullYear()}`
     const timeStr = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
 
-    dateTxt.innerHTML = `${dateStr}<br>${timeStr}`
+    document.getElementById('datetxt').innerHTML = `${dateStr}<br>${timeStr}`
 }
 
 // Controller
@@ -54,7 +54,7 @@ function onInsertHandler(obj) {
 // Model
 function insertNote(obj) {
     notes = [...notes, obj]
-    count++
+    nextId++
     // renderNotes()
 }
 
@@ -82,14 +82,17 @@ function createNoteElement(note) {
 
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
+    checkbox.id = 'noteCheckbox' + note.key
     checkbox.checked = note.softDeleted
     checkbox.addEventListener('click', () => strikeThrough(note.key))
 
     const label = document.createElement('label')
+    label.htmlFor = 'noteCheckbox' + note.key
     label.textContent = note.note // safe, no XSS
     label.className = `w-[200px] max-h-[100px] overflow-hidden break-words whitespace-normal text-base ${note.softDeleted ? 'line-through text-gray-500' : ''}`
 
     const deleteBtn = document.createElement('button')
+    deleteBtn.id = 'deleteBtn' + note.key
     deleteBtn.textContent = 'X'
     deleteBtn.className = 'w-[35px] h-[35px] border border-black rounded-full'
     deleteBtn.addEventListener('click', () => deleteNote(note.key))
