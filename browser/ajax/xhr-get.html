@@ -31,13 +31,12 @@
         }
 
         function handleResponse(response) {
-            document.getElementById('responseText').innerHTML = `<strong>Title</strong>: ${response.title}
-                                                                <br>
-                                                                <strong>Body</strong>: ${response.body}`
+            document.getElementById('responseText').textContent = `Title: ${response.title}
+                                                                     Body: ${response.body}`
         }
 
         function showError(statusText) {
-            document.getElementById('responseText').innerText = `Error: ${statusText}`
+            document.getElementById('responseText').textContent = `Error: ${statusText}`
         }
     </script>
     

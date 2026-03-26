@@ -28,13 +28,12 @@
                 return response.json()
             })
             .then(data => {
-                document.getElementById('responseText').innerHTML = `<b>Title: </b>${data.title}
-                                                                     <br>
-                                                                     <b>Body: </b>${data.body}`
+                document.getElementById('responseText').textContent = `Title: ${data.title}
+                                                                     Body: ${data.body}`
             })
             .catch(error => {
                 console.error("Error: ", error) // logging
-                document.getElementById('responseText').innerHTML = `Error: ${error.message}`   // user-facing
+                document.getElementById('responseText').textContent = `Error: ${error.message}`   // user-facing
             })
         }
     </script>

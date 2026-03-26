@@ -28,8 +28,8 @@
             })
             .catch(error => {
                 console.error("Error: ", error) // Logging
-                document.getElementById('responseText').innerHTML = `Error. ${error.message}`
-                document.getElementById('responseText').innerHTML = `Error. ${grLocalizations[error.response?.data?.errorCode]}`
+                document.getElementById('responseText').textContent = `Error. ${error.message}`
+                document.getElementById('responseText').textContent = `Error. ${grLocalizations[error.response?.data?.errorCode]}`
             })
         }
 

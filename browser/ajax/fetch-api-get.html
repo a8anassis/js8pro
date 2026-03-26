@@ -22,9 +22,8 @@
                 return response.json()      // μετατρέπει το JSON string σε JS Object
             })
             .then(data => {
-                document.getElementById('responseText').innerHTML = `<b>Title: </b>${data.title}
-                                                                     <br>
-                                                                     <b>Body: </b>${data.body}`
+                document.getElementById('responseText').textContent = `Title: ${data.title}
+                                                                     Body: ${data.body}`
 
             })
             .catch(error => console.error("Error: " + error.message))

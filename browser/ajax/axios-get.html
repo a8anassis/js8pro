@@ -16,7 +16,8 @@
         function fetchOneObj() {
             axios.get('https://jsonplaceholder.typicode.com/posts/1')
             .then(response => {
-                document.getElementById('responseText').innerHTML = `<b>Ttile: </b>${response.data.title}`
+                document.getElementById('responseText').textContent = `Title: ${response.data.title}
+                                                                     Body: ${response.data.body}`
             }) 
             .catch(error => console.error("Error: ", error.message))
         }

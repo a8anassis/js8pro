@@ -16,16 +16,25 @@
         document.getElementById('btn').addEventListener('click', async () => {
             try {
                 let response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
-                document.getElementById('output').innerHTML = `<b>Title: </b>${response.data.title}
-                                                                <br>
-                                                                <b>Body: </b>${response.data.body}`
+                document.getElementById('output').textContent = `Title: ${response.data.title}
+                                                                Body: ${response.data.body}`
             } catch (error) {
-                console.error('Fetch Error: ', error)
-                document.getElementById('output').innerHTML = 'Error Fetching Data';    // Όχι 'καρφωτά' μηνύματα
+                console.error('Fetch Error: ', error.message) // Logging
+                // document.getElementById('output').textContent = 'Error Fetching Data';    // Όχι 'καρφωτά' μηνύματα
+                document.getElementById('output').textContent = t.fetchError;    // Όχι 'καρφωτά' μηνύματα
             }
         })
 
+        const messages = {
+            en: { fetchError: 'Something went wrong. Please try again.' },
+            el: { fetchError: 'Κάτι πήγε στραβά. Δοκιμάστε ξανά.' },
+            fr: { fetchError: 'Une erreur est survenue. Veuillez réessayer.' }
+        };
 
+        const lang = navigator.language.slice(0, 2); // 'en', 'el', 'fr' κ.λπ.
+        const t = messages[lang] || messages['en']; // fallback στα αγγλικά
+
+        // Ο navigator είναι ένα built-in object του browser που δίνει πληροφορίες για τον browser και τη συσκευή του χρήστη.
 
     </script>
     
