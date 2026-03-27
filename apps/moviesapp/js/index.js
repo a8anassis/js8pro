@@ -2,15 +2,17 @@ $(function() {
     let debounceTimeout = null
     $('#searchInput').on('input', function() {  // fires κάθε φορά που αλλάζει το value του <input>
         clearTimeout(debounceTimeout)
-        debounceTimeout = setTimeout(() => getMovie(this.value.trim()), 1500)
+        debounceTimeout = setTimeout(() => getMovie(this.value.trim()), 1500)   // - Ξαναπρογραμματίζει την κλήση της getMovie() για 1500ms αργότερα
+
     })   
 
     $('#showMore').on('click', function(e) {
-        e.preventDefault()
+        e.preventDefault()      // - Επειδή το showMore είναι <a>, το default behavior θα ήταν να κάνει navigation στο URL του href.
+                                // Το preventDefault() το εμποδίζει αυτό.
+                                // Άρα: ο σύνδεσμος δεν θα κάνει redirect πουθενά.
         onShowMoreClicked()
     })
 })
-
 
 function getMovie(title) {
     if (!title) {
@@ -27,7 +29,7 @@ function fetchMovieFromApi(title) {
             handleResults(response.data)
         })
         .catch(error => { 
-            console.error('Error: ' + error)
+            console.error('Error: ' + error.message)
             onApiError()    
         })
 }
@@ -55,7 +57,12 @@ function onApiError() {
 }
 
 function onShowMoreClicked() {
-    $('.extended').slideToggle(1000)
+    $('.extended').slideToggle(1000) // - Επιλέγει όλα τα στοιχεία με class .extended
+    // - Εκτελεί πάνω τους το slideToggle της jQuery
+    // - Αν τα .extended είναι κρυμμένα → γλιστράνε προς τα κάτω και εμφανίζονται
+    // - Αν είναι ορατά → γλιστράνε προς τα πάνω και κρύβονται
+
+
 }
 
 function showComponent(component) {
